@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>10.0</LangVersion>
+    <AssemblyName>FSharpPostgreSQL</AssemblyName>
+    <!-- Copy all NuGet dependencies to the output directory so dotnet fsi can
+         resolve transitive assemblies (e.g. Fable.Core) when loading the DLL. -->
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="src/Shared/Grammar.fs" />
+    <Compile Include="src/Shared/Types.fs" />
+    <Compile Include="src/Shared/Attributes.fs" />
+    <Compile Include="src/Shared/Config.fs" />
+    <Compile Include="src/Shared/Schema.fs" />
+    <Compile Include="src/Database/SeedData.fs" />
+    <Compile Include="src/Database/LocalViews.fs" />
+    <Compile Include="src/Database/PostgreSQL.fs" />
+    <Compile Include="src/Database/RlsGenerator.fs" />
+    <Compile Include="src/Database/ViewGenerator.fs" />
+    <Compile Include="src/Database/StorageGenerator.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fable.Core" Version="5.0.0-rc.1" />
+  </ItemGroup>
+</Project>
