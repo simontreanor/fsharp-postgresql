@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "dotnet tool restore",
+    "generate:schema": "dotnet build && dotnet fsi --shadowcopyreferences src/Database/Scripts/SchemaGenerate.fsx",
+    "generate:views": "dotnet build && dotnet fsi --shadowcopyreferences src/Database/Scripts/ViewGenerate.fsx",
+    "generate:rls": "dotnet build && dotnet fsi --shadowcopyreferences src/Database/Scripts/RlsGenerate.fsx",
+    "generate:functions": "dotnet build && dotnet fsi --shadowcopyreferences src/Database/Scripts/FunctionGenerate.fsx",
+    "generate:storage": "dotnet build && dotnet fsi --shadowcopyreferences src/Database/Scripts/StorageGenerate.fsx",
+    "generate:all": "npm run generate:schema && npm run generate:views && npm run generate:rls && npm run generate:functions && npm run generate:storage",
+    "supabase:start": "npx supabase start",
+    "supabase:stop": "npx supabase stop",
+    "supabase:push:schema": "psql \"postgresql://postgres:postgres@localhost:54322/postgres\" -f src/Database/Generated/Schema.sql",
+    "supabase:push:views": "psql \"postgresql://postgres:postgres@localhost:54322/postgres\" -f src/Database/Generated/Views.sql",
+    "supabase:push:rls": "psql \"postgresql://postgres:postgres@localhost:54322/postgres\" -f src/Database/Generated/RlsPolicies.sql",
+    "supabase:push:functions": "psql \"postgresql://postgres:postgres@localhost:54322/postgres\" -f src/Database/Generated/Functions.sql",
+    "supabase:push:storage": "psql \"postgresql://postgres:postgres@localhost:54322/postgres\" -f src/Database/Generated/Storage.sql",
+    "supabase:push:all": "npm run supabase:push:schema && npm run supabase:push:views && npm run supabase:push:rls && npm run supabase:push:functions && npm run supabase:push:storage"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.4"
+  },
+  "devDependencies": {
+    "supabase": "^2.76.8"
+  }
+}

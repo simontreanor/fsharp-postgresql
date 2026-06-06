@@ -1,4 +1,41 @@
+# dotnet build
 bin/
 obj/
+
+# VS Code
+.vscode/
+
+# npm
+node_modules/
+
+# Vite
+dist/
+
+# Environment variables (secrets, API keys)
 .env
+.env.production
+.env.test
+.env.docker
 .secrets/
+
+# Supabase local
+.branches/
+.temp/
+
+# IDE
+.fake/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+test-results/
+playwright-report/
+
+# Misc
+.seed-state.json
