@@ -1,6 +1,6 @@
 # fsharp-postgresql
 
-Reference implementation for the article [Your Database Schema Is Your Codebase: F# as the Single Source of Truth](https://si-fi.dev/articles/FSharpSchemaAsCode).
+Reference implementation for the article [Your Database Schema Is Your Codebase: F# as the Single Source of Truth](https://si-fi.dev/articles/fsharp-schema-as-code).
 
 Demonstrates a schema-as-code approach where F# record types with custom attributes are the single source of truth for PostgreSQL table shape, keys, constraints, RLS policies, and views.
 
